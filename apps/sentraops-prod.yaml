@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: sentraops-prod
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/hwuxfuoc/NT548_SentraOps_gitops
+    targetRevision: main
+    path: helm/sentraops
+    helm:
+      valueFiles:
+        - /prod/values.yaml
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: sentraops-prod
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true

@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: sentraops-staging
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/hwuxfuoc/NT548_SentraOps_gitops
+    targetRevision: main
+    path: helm/sentraops
+    helm:
+      valueFiles:
+        - /staging/values.yaml
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: sentraops-staging
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true

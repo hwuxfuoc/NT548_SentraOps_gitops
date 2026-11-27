@@ -1,0 +1,3 @@
+image:
+  repository: ghcr.io/hwuxfuoc/sentraops-app
+  tag: "latest"  # CD pipeline tự cập nhật thành git SHA sau mỗi merge vào main
