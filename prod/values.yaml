@@ -1,0 +1,3 @@
+image:
+  repository: ghcr.io/hwuxfuoc/sentraops-app
+  tag: "latest"  # cập nhật thủ công qua PR, sau khi approved ở staging
